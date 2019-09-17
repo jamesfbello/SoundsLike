@@ -1,0 +1,11 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    align-self: auto;
+    background: navajowhite;
+    color: midnightblue;
+}
+
+.container-hidden{
+display: none;
+}
