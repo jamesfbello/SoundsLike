@@ -8,7 +8,6 @@ $(document).ready(function() {
 
 //create event listeners for form submission
 function watchSubmitForm() {
-    console.log("watchSumbitForm works!");
     $("#search-artist").submit(e => {
       e.preventDefault();
       let searchArtist = $("#artist-name-input").val();
@@ -25,7 +24,6 @@ const tasteDiveSearchURL = "https://tastedive.com/api/";
 
 //function to create string to use for URL based on params
 function formatQueryParams(params) {
-    console.log("formatQueryParams function works!");
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
     );
     return queryItems.join("&");
@@ -34,8 +32,6 @@ function formatQueryParams(params) {
 
 //GET Request to TasteDiveAPI
 function getRequestTasteDive (searchArtist, numResults) {
-  console.log("getRequestTasteDive works!");
-
   const params = {
     q: searchArtist,
     type: "music",
@@ -47,40 +43,35 @@ function getRequestTasteDive (searchArtist, numResults) {
   
   const tasteDiveQueryString = formatQueryParams(params);
   const url = tasteDiveSearchURL + "similar?" + tasteDiveQueryString;
-  console.log(url);
-
-
-  fetch(url)
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    }
+  
+  $.ajax({
+    url: url,
+    dataType: 'jsonp',
+    success: displayResults
   })
-  .then(responseJson => displayResults(responseJson))
-  .catch(err => {
-    console.log(err);
-    alert("Something went wrong, try again!");
-});
 }
 
 //display request results to DOM
 function displayResults(responseJson) {
-  console.log("displayResult function works");
+  console.log('ZOMG!', responseJson)
   $("#results-list").empty();
-  for (let i = 0; i < responseJson.data.length; i++) {
+  const results = responseJson.Similar.Results
+  for (let result of results) {
     $("#results-list").append(`<br> <br>
     <div class="response-container">
         <div class="artist-name">
-        <h3>${responseJson.Results[i].Name}</h3>
+        <h3>${result.Name}</h3>
         </div>
         <div class="artist-bio">
-        <p>${responseJson.Results[i].wTeaser}</p>
+        <p>${result.wTeaser}</p>
         </div>
         <div class="artist-wiki">
-        <a href="${responseJson.Results[i].wURL}">Need more info? Check thier Wiikipedia page!</a>
+        <a href="${result.wURL}">Need more info? Check thier Wikipedia page!</a>
         </div>
         </div> 
     </div>`);
   }
-  $("#results-list").removeClass("hidden");
+  $("#results-list").removeClass("container-hidden");
 }
+
+//emptydiv for lastfm top tracks
