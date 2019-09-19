@@ -71,6 +71,10 @@ function displayResults(responseJson) {
         <div class="artist-bio">
         <p>${result.wTeaser}</p>
         </div>
+        <div class="top-tracks">
+          <ul class="top-tracks-list">
+          </ul>
+        </div>
         <div class="artist-wiki">
         <a href="${result.wURL}">Need more info? Check thier Wikipedia page!</a>
         </div>
@@ -84,16 +88,17 @@ function displayResults(responseJson) {
 const lastFmAPIKey = "c84722b6685ae3659ba0e56fa2fc1d10";
 const lastFmSearchURL = "http://ws.audioscrobbler.com/2.0/";
 
-
+//Q: Will this function target properly? Will it target every artist in the results or just the first
 function getArtistNameVal() { 
   console.log("getArtistNameVal works!");
   return $('.artist-name-value').val(); 
 } 
+//Q: I cannot check this value
+let artistName = getArtistNameVal();
 
-let getArtistName = getArtistNameVal();
 
 
-
+//Q: Are the variables within the function within scope? I can reuse some of these variables?
 //function to create string to use for LastFM URL based on params
 function formatSecondQueryParams(params) {
     console.log("formatSecondQueryParams works!");
@@ -102,14 +107,15 @@ function formatSecondQueryParams(params) {
     return queryItems.join("&");
   }
 
+//Q: Function not working properly, i cannot generate JSON result in console 
 //GET Request to LastFM API
 function getRequestLastFM (artistName) {
   console.log("getRequestLastFM works!")
   const params = {
-    method: "searchArtist.gettoptracks",
+    method: "artist.gettoptracks",
     artist: artistName,
     autocorrect: 1,
-    limit: 5,
+    limit: 3,
     api_key: lastFmAPIKey,
     format: "json"
   };
@@ -134,8 +140,22 @@ function getRequestLastFM (artistName) {
  
 }
 
+//Q: Can I append the targeted div/ul even when it doesn't initally load into the DOM? Is it better to add an on click event listener to activate this function?
 //Display LastFM API results to DOM
- 
+function displayLastFmResults(responseJson) {
+  console.log("displayResults works!");
+  console.log(responseJson);
+
+
+  $("#results-list").empty();
+  const results = responseJson.toptracks.track
+  for (let result of results) {
+    $(".top-tracks-list").append(`<br> <br>
+    <li>
+      <a href="${result.url}">${result.name}</a>
+    </li>`);
+  }
+}
 
 
 
