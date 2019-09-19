@@ -8,6 +8,7 @@ $(document).ready(function() {
 
 //create event listeners for form submission
 function watchSubmitForm() {
+    console.log("watchSumbitForm works!");
     $("#search-artist").submit(e => {
       e.preventDefault();
       let searchArtist = $("#artist-name-input").val();
@@ -17,13 +18,14 @@ function watchSubmitForm() {
   }
 
 
-// set constants for API Key and URL endpoint
+// set constants for TasteDive API Key and URL endpoint
 const tasteDiveAPIKey = "345800-SoundsLi-VA6UST61";
 const tasteDiveSearchURL = "https://tastedive.com/api/";
 
 
-//function to create string to use for URL based on params
+//function to create string to use for TasteDive API URL based on params
 function formatQueryParams(params) {
+    console.log("formatQueryParams function works!");
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
     );
     return queryItems.join("&");
@@ -32,6 +34,7 @@ function formatQueryParams(params) {
 
 //GET Request to TasteDiveAPI
 function getRequestTasteDive (searchArtist, numResults) {
+  console.log("getRequestTasteDive works!");
   const params = {
     q: searchArtist,
     type: "music",
@@ -43,24 +46,26 @@ function getRequestTasteDive (searchArtist, numResults) {
   
   const tasteDiveQueryString = formatQueryParams(params);
   const url = tasteDiveSearchURL + "similar?" + tasteDiveQueryString;
+  console.log(url)
+
   
   $.ajax({
     url: url,
     dataType: 'jsonp',
     success: displayResults
-  })
+  });
 }
 
-//display request results to DOM
+//display TasteDive API request results to DOM
 function displayResults(responseJson) {
-  console.log('ZOMG!', responseJson)
+  console.log(responseJson)
   $("#results-list").empty();
   const results = responseJson.Similar.Results
   for (let result of results) {
     $("#results-list").append(`<br> <br>
     <div class="response-container">
         <div class="artist-name">
-        <h3>${result.Name}</h3>
+        <h3 class="artist-name-value">${result.Name}</h3>
         </div>
         <div class="artist-bio">
         <p>${result.wTeaser}</p>
@@ -74,4 +79,59 @@ function displayResults(responseJson) {
   $("#results-list").removeClass("container-hidden");
 }
 
-//emptydiv for lastfm top tracks
+// set constants for LastFM API Key and URL endpoint
+const lastFmAPIKey = "c84722b6685ae3659ba0e56fa2fc1d10";
+const lastFmSearchURL = "http://ws.audioscrobbler.com/2.0/";
+
+
+function getArtistNameVal() { 
+  return $('.artist-name-value').val(); 
+} 
+
+let getArtistName = getArtistNameVal();
+
+
+
+//function to create string to use for LastFM URL based on params
+function formatSecondQueryParams(params) {
+    const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+    );
+    return queryItems.join("&");
+  }
+
+//GET Request to LastFM API
+function getRequestLastFM (artistName) {
+  const params = {
+    method: "searchArtist.gettoptracks",
+    artist: artistName,
+    autocorrect: 1,
+    limit: 5,
+    api_key: lastFmAPIKey,
+    format: "json"
+  };
+
+  
+  const tasteDiveQueryString = formatSecondQueryParams(params);
+  const url = lastFmSearchURL + "?" + tasteDiveQueryString;
+  console.log(url);
+  
+  
+  fetch(url)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+  })
+  .then(responseJson => displayResults(responseJson))
+  .catch(err => {
+    console.log(err);
+    alert("Something went wrong, try again!");
+  });
+ 
+}
+
+//Display LastFM API results to DOM
+ 
+
+
+
