@@ -58,7 +58,8 @@ function getRequestTasteDive (searchArtist, numResults) {
 
 //display TasteDive API request results to DOM
 function displayResults(responseJson) {
-  console.log(responseJson)
+  console.log("displayResults works!");
+  console.log(responseJson);
   $("#results-list").empty();
   const results = responseJson.Similar.Results
   for (let result of results) {
@@ -85,6 +86,7 @@ const lastFmSearchURL = "http://ws.audioscrobbler.com/2.0/";
 
 
 function getArtistNameVal() { 
+  console.log("getArtistNameVal works!");
   return $('.artist-name-value').val(); 
 } 
 
@@ -94,6 +96,7 @@ let getArtistName = getArtistNameVal();
 
 //function to create string to use for LastFM URL based on params
 function formatSecondQueryParams(params) {
+    console.log("formatSecondQueryParams works!");
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
     );
     return queryItems.join("&");
@@ -101,6 +104,7 @@ function formatSecondQueryParams(params) {
 
 //GET Request to LastFM API
 function getRequestLastFM (artistName) {
+  console.log("getRequestLastFM works!")
   const params = {
     method: "searchArtist.gettoptracks",
     artist: artistName,
