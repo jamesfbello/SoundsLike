@@ -3,6 +3,7 @@
 //set page ready function
 $(document).ready(function() {
     watchSubmitForm();
+    loadTopTracks();
   });
 
 
@@ -64,41 +65,59 @@ function displayResults(responseJson) {
   const results = responseJson.Similar.Results
   for (let result of results) {
     $("#results-list").append(`<br> <br>
-    <div class="response-container">
+    <section class="response-container">
         <div class="artist-name">
-        <h3 class="artist-name-value">${result.Name}</h3>
+          <h3 class="artist-name-value">${result.Name}</h3>
         </div>
         <div class="artist-bio">
-        <p>${result.wTeaser}</p>
-        </div>
-        <div class="top-tracks">
-          <ul class="top-tracks-list">
-          </ul>
+          <p>${result.wTeaser}</p>
         </div>
         <div class="artist-wiki">
-        <a href="${result.wURL}">Need more info? Check thier Wikipedia page!</a>
+          <a href="${result.wURL}">Need more info? Check thier Wikipedia page!</a>
         </div>
-        </div> 
-    </div>`);
+        <div class="top-tracks-list">   
+          <button class="load-tracks-button">Load top tracks!</button>
+        </div>
+    </section>`);
   }
   $("#results-list").removeClass("container-hidden");
 }
+
+//create event listeners for top tracks button
+// function loadTopTracks() {
+//   $(".load-tracks-button").submit(e => {
+//     console.log("loadTopTracks works!");
+//     e.preventDefault();
+//     function getArtistNameVal() { 
+//       console.log("getArtistNameVal works!");
+//       return $('.artist-name-value').val(); 
+//     };
+//     let artistName = getArtistNameVal();
+//     getRequestLastFM(artistName);
+//     displayLastFmResults(responseJson);
+//   });
+// }
+function loadTopTracks() {
+  $("#results-list").on('click','button', e => {
+    console.log("loadTopTracks works!");
+    e.preventDefault();
+    function getArtistNameVal() { 
+      console.log("getArtistNameVal works!");
+      return $('.artist-name-value').val(); 
+    };
+    let artistName = getArtistNameVal();
+    getRequestLastFM(artistName);
+    displayLastFmResults(responseJson);
+  });
+}
+
+
 
 // set constants for LastFM API Key and URL endpoint
 const lastFmAPIKey = "c84722b6685ae3659ba0e56fa2fc1d10";
 const lastFmSearchURL = "http://ws.audioscrobbler.com/2.0/";
 
-//Q: Will this function target properly? Will it target every artist in the results or just the first
-function getArtistNameVal() { 
-  console.log("getArtistNameVal works!");
-  return $('.artist-name-value').val(); 
-} 
-//Q: I cannot check this value
-let artistName = getArtistNameVal();
 
-
-
-//Q: Are the variables within the function within scope? I can reuse some of these variables?
 //function to create string to use for LastFM URL based on params
 function formatSecondQueryParams(params) {
     console.log("formatSecondQueryParams works!");
@@ -146,14 +165,12 @@ function displayLastFmResults(responseJson) {
   console.log("displayResults works!");
   console.log(responseJson);
 
-
-  $("#results-list").empty();
   const results = responseJson.toptracks.track
   for (let result of results) {
     $(".top-tracks-list").append(`<br> <br>
-    <li>
+    <div>
       <a href="${result.url}">${result.name}</a>
-    </li>`);
+    <div>`);
   }
 }
 
