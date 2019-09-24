@@ -60,14 +60,14 @@ function getRequestTasteDive (searchArtist, numResults) {
 //display TasteDive API request results to DOM
 function displayResults(responseJson) {
   console.log("displayResults works!");
-  console.log(responseJson);
+  console.log('responseJson in display results',responseJson);
   $("#results-list").empty();
   const results = responseJson.Similar.Results
-  for (let result of results) {
+  results.forEach((result, idx) => {
     $("#results-list").append(`<br> <br>
     <section class="response-container">
         <div class="artist-name">
-          <h3 class="artist-name-value">${result.Name}</h3>
+          <h3 class="artist-name-value-${idx}">${result.Name}</h3>
         </div>
         <div class="artist-bio">
           <p>${result.wTeaser}</p>
@@ -78,8 +78,8 @@ function displayResults(responseJson) {
         <div class="top-tracks-list">   
           <button class="load-tracks-button">Load top tracks!</button>
         </div>
-    </section>`);
-  }
+    </section>`)
+  })
   $("#results-list").removeClass("container-hidden");
 }
 
@@ -97,17 +97,20 @@ function displayResults(responseJson) {
 //     displayLastFmResults(responseJson);
 //   });
 // }
+//working 2nd form
 function loadTopTracks() {
-  $("#results-list").on('click','button',e => {
+  $("#results-list").on('click','button', e => {
     console.log("loadTopTracks works!");
     e.preventDefault();
     function getArtistNameVal() { 
       console.log("getArtistNameVal works!");
-      return $('.artist-name-value').val(); 
+      console.log('artist name element', $('.artist-name-value-0').text())
+      return $('.artist-name-value-0').text(); 
     };
     let artistName = getArtistNameVal();
+    console.log('artistName in load top tracks',artistName)
     getRequestLastFM(artistName);
-    displayLastFmResults(responseJson);
+    // displayLastFmResults(responseJson);
   });
 }
 
@@ -126,7 +129,7 @@ function formatSecondQueryParams(params) {
     return queryItems.join("&");
   }
 
-//Q: Function not working properly, i cannot generate JSON result in console 
+
 //GET Request to LastFM API
 function getRequestLastFM (artistName) {
   console.log("getRequestLastFM works!")
@@ -145,13 +148,13 @@ function getRequestLastFM (artistName) {
   console.log(url);
   
   
-  fetch(url)
+   fetch(url)
   .then(response => {
     if (response.ok) {
       return response.json();
     }
   })
-  .then(responseJson => displayLastFMResults(responseJson))
+  .then(responseJson => console.log('responseJson in getRequestLastFM',responseJson) || displayLastFmResults(responseJson))
   .catch(err => {
     console.log(err);
     alert("Something went wrong, try again!");
@@ -164,11 +167,12 @@ function getRequestLastFM (artistName) {
 function displayLastFmResults(responseJson) {
   console.log("displayResults works!");
   console.log(responseJson);
-
+  $(".reset-artist").empty();
   const results = responseJson.toptracks.track
   for (let result of results) {
-    $(".top-tracks-list").append(`<br> <br>
-    <div>
+    $(".top-tracks-list").append(`
+    <div class="reset-artist">
+      <br> <br>
       <a href="${result.url}">${result.name}</a>
     <div>`);
   }
