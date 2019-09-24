@@ -80,6 +80,24 @@ function displayResults(responseJson) {
         </div>
     </section>`)
   })
+  // added onClick to button, but it doesnt work
+  // results.forEach((result, idx) => {
+  //   $("#results-list").append(`<br> <br>
+  //   <section class="response-container">
+  //       <div class="artist-name">
+  //         <h3 class="artist-name-value">${result.Name}</h3>
+  //       </div>
+  //       <div class="artist-bio">
+  //         <p>${result.wTeaser}</p>
+  //       </div>
+  //       <div class="artist-wiki">
+  //         <a href="${result.wURL}">Need more info? Check thier Wikipedia page!</a>
+  //       </div>
+  //       <div class="top-tracks-list">   
+  //         <button class="load-tracks-button" onClick="getRequestLastFM('${result.Name}'">Load top tracks!</button>
+  //       </div>
+  //   </section>`)
+  // })
   $("#results-list").removeClass("container-hidden");
 }
 
@@ -104,15 +122,19 @@ function loadTopTracks() {
     e.preventDefault();
     function getArtistNameVal() { 
       console.log("getArtistNameVal works!");
-      console.log('artist name element', $('.artist-name-value-0').text())
+      console.log('artist name element', $('.artist-name-value-0').text());
       return $('.artist-name-value-0').text(); 
+      // for (i=0; i < ;i++){
+      //   console.log('artist name element', $('.artist-name-value-[i]'.text()))
+      //   return $('.artist-name-value-[i]').text();
+      // }
     };
     let artistName = getArtistNameVal();
     console.log('artistName in load top tracks',artistName)
     getRequestLastFM(artistName);
-    // displayLastFmResults(responseJson);
   });
 }
+
 
 
 
