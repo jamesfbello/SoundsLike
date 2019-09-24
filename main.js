@@ -98,7 +98,7 @@ function displayResults(responseJson) {
 //   });
 // }
 function loadTopTracks() {
-  $("#results-list").on('click','button', e => {
+  $("#results-list").on('click','button',e => {
     console.log("loadTopTracks works!");
     e.preventDefault();
     function getArtistNameVal() { 
@@ -151,7 +151,7 @@ function getRequestLastFM (artistName) {
       return response.json();
     }
   })
-  .then(responseJson => displayResults(responseJson))
+  .then(responseJson => displayLastFMResults(responseJson))
   .catch(err => {
     console.log(err);
     alert("Something went wrong, try again!");
@@ -159,7 +159,7 @@ function getRequestLastFM (artistName) {
  
 }
 
-//Q: Can I append the targeted div/ul even when it doesn't initally load into the DOM? Is it better to add an on click event listener to activate this function?
+
 //Display LastFM API results to DOM
 function displayLastFmResults(responseJson) {
   console.log("displayResults works!");
