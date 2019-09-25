@@ -38,6 +38,8 @@ function getRequestTasteDive(searchArtist, numResults) {
   };
   const tasteDiveQueryString = formatQueryParams(params);
   const url = tasteDiveSearchURL + "similar?" + tasteDiveQueryString;
+  console.log('TasteDive API URL' , url);
+
   $.ajax({
     url: url,
     dataType: 'jsonp',
@@ -47,13 +49,14 @@ function getRequestTasteDive(searchArtist, numResults) {
 
 //display TasteDive API request results to DOM
 function displayResults(responseJson) {
+  console.log('responseJson in display results',responseJson);
   $("#results-list").empty();
   const results = responseJson.Similar.Results
-  results.forEach((result, idx) => {
+  for (let result of results) {
     $("#results-list").append(`
     <section class="response-container">
         <div class="artist-name">
-          <h3 class="artist-name-value-${idx}">${result.Name}</h3>
+          <h3 class="artist-name-value">${result.Name}</h3>
         </div>
         <div class="artist-bio">
           <p>${result.wTeaser}</p>
@@ -65,7 +68,7 @@ function displayResults(responseJson) {
           <button class="load-tracks-button">Load top tracks!</button>
         </div>
     </section>`)
-  })
+  }
   $("#results-list").removeClass("container-hidden");
 }
 
@@ -102,8 +105,9 @@ function loadTopTracks(artist, target) {
     format: "json"
   };
 
-  const tasteDiveQueryString = formatSecondQueryParams(params);
-  const url = lastFmSearchURL + "?" + tasteDiveQueryString;
+  const lastFMQueryString = formatSecondQueryParams(params);
+  const url = lastFmSearchURL + "?" + lastFMQueryString;
+  console.log('LastFM API URL', url)
 
   fetch(url)
     .then(response => {
@@ -125,7 +129,6 @@ function displayTopTracks(responseJson, target) {
   for (let result of results) {
     $(target).append(`
     <div class="reset-artist">
-      <br> <br>
       <a href="${result.url}">${result.name}</a>
     <div>`);
   }
