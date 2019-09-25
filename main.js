@@ -4,7 +4,16 @@
 $(document).ready(function () {
   watchSubmitForm();
   loadTopTracks();
+  startApp();
 });
+
+function startApp() {
+	$('.start-button').click( e => {
+		$('.intro').css('display', 'none');
+    $("#form-container").removeClass("container-hidden");
+  });
+  }
+
 
 //create event listeners for form submission
 function watchSubmitForm() {
@@ -51,6 +60,8 @@ function getRequestTasteDive(searchArtist, numResults) {
 function displayResults(responseJson) {
   console.log('responseJson in display results',responseJson);
   $("#results-list").empty();
+  // $("#results-list").append(`
+  //   <h2>Here are 3 of their most popular songs!</h2>`)
   const results = responseJson.Similar.Results
   for (let result of results) {
     $("#results-list").append(`
@@ -62,10 +73,10 @@ function displayResults(responseJson) {
           <p>${result.wTeaser}</p>
         </div>
         <div class="artist-wiki">
-          <a href="${result.wURL}">Need more info? Check thier Wikipedia page!</a>
+          <a href="${result.wURL}" target="blank">Need more info? Check thier Wikipedia page!</a>
         </div>
         <div class="top-tracks-list">   
-          <button class="load-tracks-button">Load top tracks!</button>
+          <button class="load-tracks-button">Click here to check thier top 3 songs!</button>
         </div>
     </section>`)
   }
@@ -74,13 +85,14 @@ function displayResults(responseJson) {
 
 //create event listeners for button click/2nd API activation
 $('body').on('click', 'button.load-tracks-button', e => {
-  e.preventDefault()
-  const el = $(e.currentTarget)
+  e.preventDefault();
+  const el = $(e.currentTarget);
   const artist = el.parents('.response-container')
     .find('.artist-name h3')
-    .html()
-  const target = el.parents('.top-tracks-list')
-  loadTopTracks(artist, target)
+    .html();
+  const target = el.parents('.top-tracks-list');
+  loadTopTracks(artist, target);
+  $(e.currentTarget).remove();
 })
 
 // set constants for LastFM API Key and URL endpoint
@@ -125,11 +137,14 @@ function loadTopTracks(artist, target) {
 
 //Display LastFM API results to DOM
 function displayTopTracks(responseJson, target) {
+    $(target).append(`
+    <h4>Here are 3 of their most popular songs!</h4>
+    <p>Click below to find more about the songs!<p>`)
   const results = responseJson.toptracks.track
   for (let result of results) {
     $(target).append(`
-    <div class="reset-artist">
-      <a href="${result.url}">${result.name}</a>
+    <div class="artist-top-songs">
+      <a href="${result.url}" target="blank">${result.name}</a>
     <div>`);
   }
 }
