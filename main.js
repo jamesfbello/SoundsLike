@@ -97,7 +97,7 @@ $('body').on('click', 'button.load-tracks-button', e => {
 
 // set constants for LastFM API Key and URL endpoint
 const lastFmAPIKey = "c84722b6685ae3659ba0e56fa2fc1d10";
-const lastFmSearchURL = "http://ws.audioscrobbler.com/2.0/";
+const lastFmSearchURL = "https://ws.audioscrobbler.com/2.0/";
 
 //function to create string to use for LastFM URL based on params
 function formatSecondQueryParams(params) {
