@@ -22,6 +22,7 @@ function watchSubmitForm() {
     let searchArtist = $("#artist-name-input").val();
     let numResults = $("#number-input").val();
     getRequestTasteDive(searchArtist, numResults);
+    displayResults(searchArtist,numResults);
   });
 }
 
@@ -57,11 +58,13 @@ function getRequestTasteDive(searchArtist, numResults) {
 }
 
 //display TasteDive API request results to DOM
-function displayResults(responseJson) {
+function displayResults(responseJson,searchArtist,numResults) {
   console.log('responseJson in display results',responseJson);
   $("#results-list").empty();
   // $("#results-list").append(`
-  //   <h2>Here are 3 of their most popular songs!</h2>`)
+  //   <h2>Here are ${numResults} artists similar to ${searchArtist}:</h2>`);
+  //   console.log('# of Results:', numResults)
+  //   console.log('Artist Searched:', searchArtist)
   const results = responseJson.Similar.Results
   for (let result of results) {
     $("#results-list").append(`
@@ -73,10 +76,10 @@ function displayResults(responseJson) {
           <p>${result.wTeaser}</p>
         </div>
         <div class="artist-wiki">
-          <a href="${result.wURL}" target="blank">Need more info? Check thier Wikipedia page!</a>
+          <a href="${result.wUrl}" target="blank">Need more info? Check their Wikipedia page!</a>
         </div>
         <div class="top-tracks-list">   
-          <button class="load-tracks-button">Click here to check thier top 3 songs!</button>
+          <button class="load-tracks-button">Click here to check their top 3 songs!</button>
         </div>
     </section>`)
   }
