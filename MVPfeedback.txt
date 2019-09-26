@@ -15,3 +15,8 @@ User C:
 -Typo and grammatical errors pointed out.
 -Functionality works well.
 -Works on mobile. 
+
+User J:
+-Great idea for a quick use app. Definitely useful.
+-User flow is great.
+
