@@ -22,7 +22,6 @@ function watchSubmitForm() {
     let searchArtist = $("#artist-name-input").val();
     let numResults = $("#number-input").val();
     getRequestTasteDive(searchArtist, numResults);
-    displayResults(searchArtist,numResults);
   });
 }
 
@@ -53,7 +52,9 @@ function getRequestTasteDive(searchArtist, numResults) {
   $.ajax({
     url: url,
     dataType: 'jsonp',
-    success: displayResults
+    success: function(data) {
+      displayResults(data, searchArtist, numResults);
+    }
   });
 }
 
@@ -61,10 +62,10 @@ function getRequestTasteDive(searchArtist, numResults) {
 function displayResults(responseJson,searchArtist,numResults) {
   console.log('responseJson in display results',responseJson);
   $("#results-list").empty();
-  // $("#results-list").append(`
-  //   <h2>Here are ${numResults} artists similar to ${searchArtist}:</h2>`);
-  //   console.log('# of Results:', numResults)
-  //   console.log('Artist Searched:', searchArtist)
+  $("#results-list").append(`
+    <h2>Here are ${numResults} artists similar to ${searchArtist}:</h2>`);
+    console.log('# of Results:', numResults)
+    console.log('Artist Searched:', searchArtist)
   const results = responseJson.Similar.Results
   for (let result of results) {
     $("#results-list").append(`
