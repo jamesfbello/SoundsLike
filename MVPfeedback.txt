@@ -1,0 +1,17 @@
+User N:
+- Works as intended.
+-Improve the search bar, autocomplete?
+-Doesnt have a need for the app because they have a spotify account. 
+ But recognizes that there is a need for those who don't have spotify
+
+User K:
+-Some artists don't have descriptions populated.
+-One artist didn't work.
+-Dead wikipedia links.
+-Functionality works very well.
+-Quite helpful.
+
+User C: 
+-Typo and grammatical errors pointed out.
+-Functionality works well.
+-Works on mobile. 
