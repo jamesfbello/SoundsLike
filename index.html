@@ -10,6 +10,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/sansita" type="text/css"/>
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/asap" type="text/css"/>
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/muli" type="text/css"/>
     </head>
     <header>
         <h1>SoundsLike</h1>
@@ -25,7 +28,7 @@
             <p>
             Enter the name of an artist below:
             </p>
-            <input type="text" id="artist-name-input" class="form-control" placeholder="Example: My Chemical Romance or Drake" size="35"/>
+            <input type="text" id="artist-name-input" class="form-control" placeholder="Example: My Chemical Romance or Drake" size="35" autocomplete="on"/>
             <br/>
             <p>
             Number of similar artists you would like to see:
@@ -36,7 +39,6 @@
         </form>
         </section>
         <section id="results-list" class="container-hidden">
-        <p>Check out these similar artists!</p>
         </section>
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

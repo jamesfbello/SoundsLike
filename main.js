@@ -142,13 +142,15 @@ function loadTopTracks(artist, target) {
 //Display LastFM API results to DOM
 function displayTopTracks(responseJson, target) {
     $(target).append(`
-    <h4>Here are 3 of their most popular songs!</h4>
-    <p>Click below to find more about the songs!<p>`)
+    <h4>Here are 3 of their most popular songs:</h4>
+    <p>Click below to listen and find more about the songs!<p>`)
   const results = responseJson.toptracks.track
   for (let result of results) {
     $(target).append(`
     <div class="artist-top-songs">
-      <a href="${result.url}" target="blank">${result.name}</a>
+      <ul>
+      <li><a href="${result.url}" target="blank">${result.name}</a></li>
+      </ul>
     <div>`);
   }
 }

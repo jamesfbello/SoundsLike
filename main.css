@@ -1,7 +1,8 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    background: navajowhite;
-    color: midnightblue;
+    box-sizing: border-box;
+    font-family:'MuliRegular';
+    background:#27201A;
+    color: #FD9000;
 }
 
 header{
@@ -10,6 +11,25 @@ header{
     padding-right: 40px;
     text-align: center;
 }
+
+h1{
+    font-family: 'SansitaRegular';
+    font-weight: bold;
+    font-style: italic;
+}
+
+h2{
+    font-family: 'AsapRegular';
+    font-weight: medium;
+    font-style: medium;
+}
+
+h3{
+    font-family: 'AsapRegular';
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 main{
     margin: auto;
@@ -42,4 +62,8 @@ button{
 a{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+#results-list p{
+    line-height: 25px;
 }
