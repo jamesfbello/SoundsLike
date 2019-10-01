@@ -14,17 +14,19 @@
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/asap" type="text/css"/>
         <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/muli" type="text/css"/>
     </head>
-    <header>
-        <h1>SoundsLike</h1>
-    </header>
     <body>
         <main class="main-container">
+        <header>
+                <h1>SoundsLike</h1>
+        </header>
         <section class="intro">
                 <h2>Have a music artist you love? Get reccomendations of similar music artists and listen to their top tracks!</h2>
-                <button class="start-button">Get Started!</button>
-        </section>
+                <div class="button_cont" align="center">
+                    <a class="start-button" rel="nofollow noopener">Let's Get Started!</a>
+                </div>
+        </section>  
         <section id="form-container" class="container-hidden">  
-        <form id="search-artist">
+        <form id="search-artist" class="search-form">
             <p>
             Enter the name of an artist below:
             </p>
@@ -40,6 +42,9 @@
         </section>
         <section id="results-list" class="container-hidden">
         </section>
+        <footer>
+                <p>&copy; James Bello 2019</p>
+                </footer>
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="main.js" async defer></script>

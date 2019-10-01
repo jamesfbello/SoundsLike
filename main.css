@@ -1,40 +1,127 @@
 * {
     box-sizing: border-box;
     font-family:'MuliRegular';
-    background:#27201A;
-    color: #FD9000;
+}
+
+body{
+    background: #242325;
+    padding: 0;
+    margin: 0; 
 }
 
 header{
-    margin: auto;
-    padding-left: 40px;
-    padding-right: 40px;
+    margin: 0 auto;
     text-align: center;
+    background: #242325; 
+}
+
+footer{
+    text-align: center;
+    background: #242325;
+    color: #dc965a;
+    height: 12px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: .5rem;
 }
 
 h1{
     font-family: 'SansitaRegular';
     font-weight: bold;
     font-style: italic;
+    color: #dc965a;
+    font-size: 40px;
 }
 
 h2{
     font-family: 'AsapRegular';
     font-weight: medium;
     font-style: medium;
+    color: #f7f9f9;
 }
 
 h3{
     font-family: 'AsapRegular';
-    font-weight: normal;
-    font-style: normal;
+    font-weight: bold;
+    font-style: bold;
+    font-size: 22px;
 }
 
+h4{
+    font-family: 'AsapRegular';
+    font-size: 18px;
+}
 
 main{
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+}
+
+section {
+    padding-bottom: 2.5rem;
+}
+
+.start-button {
+    border: none;
+    background: #8c271e;
+    color: #f7f9f9!important;
+    font-weight: 100;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    font-family: 'AsapRegular';
+    }
+
+.start-button:hover {
+    color: #dc965a !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+    }
+
+.intro{
+    border-top: solid 2px #8c271e;
+    border-bottom: solid 2px #8c271e;
+    padding: 100px 50px 100px 50px;
     margin: auto;
-    padding-left: 40px;
-    padding-right: 40px;
+    color: #f7f9f9;
+    background-position: bottom right !important;
+    background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+    ),
+    url('images/ericprydz.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+}
+
+.search-form{
+    border-top: solid 2px #8c271e;
+    border-bottom: solid 2px #8c271e;
+    background: #f7f9f9;
+    padding: 30px 20px 20px 50px;
+    margin: auto;
+}
+
+#results-list{
+    background: #f7f9f9;
+    padding: 30px 20px 20px 50px;
+    margin: auto;
+    color: #242325;
+}
+
+#results-list h2{
+    color: #242325;
+
 }
 
 .container-hidden{
@@ -47,23 +134,67 @@ input{
     padding: 5px;
 }
 
-button{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-
 .open-form{
-    margin: auto;
+    margin:0 auto;
     text-align: auto;
     padding:10px;
 }
 
-a{
+#results-list a{
     margin-top: 5px;
     margin-bottom: 5px;
+    text-decoration: none;
+    color: #8c271e;
+}
+
+#results-list a:visited{
+    text-decoration: none;
+    color: #b3b3b3;
+}
+
+#results-list a:focus{
+    text-decoration: underline;
+    color: #dc965a;
+}
+
+#results-list a:hover{
+    text-decoration: none;
+    color: #dc965a;
+}
+
+#results-list a:hover{
+    text-decoration: none;
+    color: #dc965a;
 }
 
 #results-list p{
     line-height: 25px;
+}
+
+#results-list ul{
+    list-style-type: none;
+    padding:0;
+}
+
+.load-tracks-button {
+    color: #8c271e !important;
+    text-transform: uppercase;
+    background: transparent;
+    padding: 15px;
+    border: 4px solid #8c271e !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    margin: 15px 0px;
+}
+.load-tracks-button:hover {
+    color: #dc965a !important;
+    border-radius: 50px;
+    border-color: #dc965a !important;
+    transition: all 0.3s ease 0s;
+}
+.load-tracks-button:active {
+	position:relative;
+    top:1px;
+    background: #dc965a;
 }
