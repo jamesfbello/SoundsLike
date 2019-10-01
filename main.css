@@ -104,12 +104,16 @@ section {
     }
 }
 
-.search-form{
+#form-container{
     border-top: solid 2px #8c271e;
     border-bottom: solid 2px #8c271e;
     background: #f7f9f9;
     padding: 30px 20px 20px 50px;
     margin: auto;
+}
+
+.container-hidden{
+    display: none;
 }
 
 #results-list{
@@ -124,9 +128,6 @@ section {
 
 }
 
-.container-hidden{
-    display: none;
-}
 
 input{
     margin-top: 10px;
