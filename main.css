@@ -119,10 +119,17 @@ section{
     background-repeat: no-repeat;
 }
 
+.intro-info{
+    display: block;
+    width:50%;
+    text-align: center;
+    margin: auto;
+}
+
 #form-container{
     border-top: solid 5px #7a0a0e;
     border-bottom: solid 5px #7a0a0e;
-    padding: 30px 20px 20px 50px;
+    padding: 30px 20px 50px 20px;
     margin: auto;
     color: #e8ddc6;
     text-align: center;
@@ -161,7 +168,7 @@ input{
 
 #results-list{
     background: #e8ddc6;
-    padding: 30px 20px 20px 50px;
+    padding: 30px 20px 50px 20px;
     margin: auto;
     color: #1c1c1c;
 }
@@ -265,4 +272,106 @@ input{
 	position:relative;
     top:1px;
     background: #93b7be;
+}
+
+
+@media screen and (min-width: 320px){
+    body {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    h1 {
+        font-size: 40px;
+        padding:0;
+        margin:0;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    h3{
+        font-size: 18px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .intro{
+        padding: 25px 25px 75px 25px;
+    }
+
+    .intro-info{
+        width: 80%;
+        text-align: left;
+    }
+
+    #results-list{
+        padding: 20px;
+    }
+
+    #results-list p{
+        line-height: 22px;
+    }
+    
+
+
+}
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+
+    }
+
+    h1 {
+        font-size: 40px;
+        padding:15px;
+        margin:15px;
+    }
+
+    h2{
+        font-size: 24px;
+    }
+
+    h3{
+        font-size: 12px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .intro{
+        padding: 25px 25px 75px 25px;
+    }
+
+    .intro-info{
+        width: 80%;
+        text-align: center;
+    }
+
+    #results-list{
+        padding: 20px;
+    }
+
+    #results-list p{
+        line-height: 22px;
+    }
+
+    #form-container{
+        padding:50px 20px;
+
+    }
+
+    #results-list{
+        padding: 30px 50px 50px 50px;
+    }
+
+    #results-list p{
+        line-height: 25px;
+    }
 }
