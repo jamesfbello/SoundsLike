@@ -25,6 +25,12 @@ function watchSubmitForm() {
   });
 }
 
+$("#submit-button").click(function() {
+  $([document.documentElement, document.body]).animate({
+      scrollTop: $("#results-list").offset().top
+  }, 1000);
+});
+
 // set constants for TasteDive API Key and URL endpoint
 const tasteDiveAPIKey = "345800-SoundsLi-VA6UST61";
 const tasteDiveSearchURL = "https://tastedive.com/api/";
