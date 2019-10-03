@@ -48,6 +48,7 @@ h3{
     font-weight: bold;
     font-style: bold;
     text-decoration: underline;
+    display: inline-block;
 }
 
 h4{
@@ -66,6 +67,29 @@ section{
 }
 
 /* intro page styling */
+.intro{
+    border-top: solid 2px #7a0a0e;
+    border-bottom: solid 2px #7a0a0e;
+    padding: 100px 50px 100px 50px;
+    margin: auto;
+    color: #e8ddc6;
+    background-position: bottom right !important;
+    background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+    ),
+    url('images/ericprydz.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.intro-info{
+    display: block;
+    width:50%;
+    text-align: center;
+    margin: auto;
+}
+
 .start-button{
     background: rgb(122,10,14);
     background: linear-gradient(90deg, rgba(122,10,14,1) 0%, rgba(232,189,25,0.2533783783783784) 100%);
@@ -93,7 +117,7 @@ section{
     opacity: 0;
     top: 0;
     right: -20px;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .start-button:hover span{
@@ -103,29 +127,6 @@ section{
 .start-button:hover span:after{
     opacity: 1;
     right: 0;
-}
-
-.intro{
-    border-top: solid 2px #7a0a0e;
-    border-bottom: solid 2px #7a0a0e;
-    padding: 100px 50px 100px 50px;
-    margin: auto;
-    color: #e8ddc6;
-    background-position: bottom right !important;
-    background: linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-    ),
-    url('images/ericprydz.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.intro-info{
-    display: block;
-    width:50%;
-    text-align: center;
-    margin: auto;
 }
 
 /* form styling */
@@ -309,6 +310,10 @@ input{
         text-align: center;
     }
 
+    input{
+        font-size: 13px;
+    }
+
     #results-list{
         padding: 20px;
     }
@@ -316,9 +321,6 @@ input{
     #results-list p{
         line-height: 22px;
     }
-    
-
-
 }
 
 @media screen and (min-width: 768px) {
@@ -353,6 +355,11 @@ input{
     .intro-info{
         width: 80%;
         text-align: center;
+    }
+
+
+    input{
+        font-size: 16px;
     }
 
     #results-list{
