@@ -77,13 +77,10 @@ function displayResults(responseJson,searchArtist,numResults) {
     $("#results-list").append(`
     <section class="response-container">
         <div class="artist-name">
-          <h3 class="artist-name-value">${result.Name}</h3>
+        <a href="${result.wUrl}" target="blank"><h3 class="artist-name-value">${result.Name}</h3></a>
         </div>
         <div class="artist-bio">
           <p>${result.wTeaser}</p>
-        </div>
-        <div class="artist-wiki">
-          <a href="${result.wUrl}" target="blank">Need more info? Check their Wikipedia page!</a>
         </div>
         <div class="top-tracks-list">   
           <button class="load-tracks-button">Click here to check their top 3 songs!</button>

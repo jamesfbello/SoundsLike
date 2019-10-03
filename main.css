@@ -211,11 +211,7 @@ input{
 #results-list a:hover{
     text-decoration: none;
     color: #93b7be;
-}
-
-#results-list a:hover{
-    text-decoration: none;
-    color: #93b7be;
+    transition: all .3s ease 0s;
 }
 
 #results-list p{
