@@ -4,7 +4,8 @@
 }
 
 body{
-    background: #1c1c1c;
+    background: rgb(28,28,28);
+    background: linear-gradient(180deg, rgba(28,28,28,1) 82%, rgba(122,10,14,1) 100%);
     padding: 0;
     margin: 0; 
 }
@@ -12,12 +13,12 @@ body{
 header{
     margin: 0 auto;
     text-align: center;
-    background: #1c1c1c; 
+    background: transparent; 
 }
 
 footer{
     text-align: center;
-    background: #1c1c1c;
+    background: transparent;
     color: #e8bd19;
     height: 12px;
     font-size: 10px;
@@ -46,7 +47,7 @@ h3{
     font-family: 'AsapRegular';
     font-weight: bold;
     font-style: bold;
-    font-size: 22px;
+    text-decoration: underline;
 }
 
 h4{
@@ -338,7 +339,7 @@ input{
     }
 
     h3{
-        font-size: 12px;
+        font-size: 22px;
     }
 
     header {
