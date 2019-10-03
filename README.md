@@ -1,7 +1,13 @@
 # SoundsLike
 
-Live Page: https://jamesfbello.github.io/SoundsLike/
+Live Page: [Soundslike](https://jamesfbello.github.io/SoundsLike/)
 
-A Web App that suggests similar music artists and thier top tracks based an artist you listen to!
+![SoundsLike Screenshot1](/images/Screenshot1.png)
 
-Uses the TasteDive and Last.fm API
+![SoundsLike Screenshot2](/images/Screenshot2.png)
+
+![SoundsLike Screenshot3](/images/Screenshot3.png)
+
+A Web App that suggests similar music artists and their top tracks based an artist you listen to! Just input a name and how many reccomenddations you would like to see.
+
+Built with HTML, CSS, Javascript, jQuery and calls the TasteDive and LastFM APIs.
