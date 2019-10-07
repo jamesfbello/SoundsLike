@@ -34,6 +34,9 @@ h1{
     font-weight: bold;
     font-style: italic;
     color: #e8bd19;
+    font-size: 40px;
+    padding:0 0 5px 0;
+    margin:0;
 }
 
 h2{
@@ -41,6 +44,7 @@ h2{
     font-weight: medium;
     font-style: medium;
     color: #e8ddc6;
+    font-size: 20px;
 }
 
 h3{
@@ -49,6 +53,7 @@ h3{
     font-style: bold;
     text-decoration: underline;
     display: inline-block;
+    font-size: 18px;
 }
 
 h4{
@@ -81,17 +86,20 @@ section{
     url('images/ericprydz.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    padding: 25px 25px 75px 25px;
 }
 
 .intro-info{
     display: block;
-    width:50%;
     text-align: center;
     margin: auto;
+    width: 80%;
+    text-align: center;
 }
 
 .button_cont{
-    align-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .start-button{
@@ -162,12 +170,9 @@ input{
     border-radius: 20px;
     text-align: center;
     padding: 10px 0px 10px 0px;
-}
-
-input{
+    font-size: 13px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 5px;
 }
 
 .open-form{
@@ -201,10 +206,14 @@ input{
 
 /* results styling */
 #search-artist{
-    display: inline-block;
     text-align: center;
     margin: auto;
     font-size: 20px;
+}
+
+#search-artist span{
+    display: block;
+    margin: 3px 0 3px 0;
 }
 
 .container-hidden{
@@ -213,9 +222,9 @@ input{
 
 #results-list{
     background: #e8ddc6;
-    padding: 30px 20px 50px 20px;
     margin: auto;
     color: #1c1c1c;
+    padding: 20px;
 }
 
 #results-list h2{
@@ -272,7 +281,7 @@ input{
 }
 
 #results-list p{
-    line-height: 25px;
+    line-height: 22px;
 }
 
 #results-list ul{
@@ -281,52 +290,6 @@ input{
 }
 
 /* responsive layouts */
-@media screen and (min-width: 320px){
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
-    h1 {
-        font-size: 40px;
-        padding:0;
-        margin:0;
-    }
-
-    h2{
-        font-size: 20px;
-    }
-
-    h3{
-        font-size: 18px;
-    }
-
-    header {
-        padding: 15px;
-    }
-
-    .intro{
-        padding: 25px 25px 75px 25px;
-    }
-
-    .intro-info{
-        width: 80%;
-        text-align: center;
-    }
-
-    input{
-        font-size: 13px;
-    }
-
-    #results-list{
-        padding: 20px;
-    }
-
-    #results-list p{
-        line-height: 22px;
-    }
-}
-
 @media screen and (min-width: 768px) {
     body {
         margin: 0;
