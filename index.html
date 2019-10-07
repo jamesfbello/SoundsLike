@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,22 +18,21 @@
         </header>
         <section class="intro">
                 <div class="intro-info"><h2>Have a music artist you love? Get reccomendations of similar music artists and listen to their top tracks!</h2></div>
-                <div class="button_cont" align="center">
-                    <a class="start-button" rel="nofollow noopener"><span>Let's Get Started!</a>
+                <div class="button_cont">
+                    <button class="start-button"><span>Let's Get Started!</button>
                 </div>
         </section>  
         <section id="form-container" class="container-hidden">  
         <form id="search-artist" class="search-form">
-            <label for="artist-name-input"><p>Enter the name of an artist below:</p></label>
+            <label for="artist-name-input">Enter the name of an artist below:</label>
             <input type="text" id="artist-name-input" class="form-control" placeholder="Example: My Chemical Romance or Drake" size="35" autocomplete="on"/>
-            <label for="number-input"><p>Number of similar artists you would like to see:</p></label>
+            <label for="number-input">Number of similar artists you would like to see:</label>
             <input type="number" id="number-input" class="form-control" value="5"/>
             <br/>
             <input id="submit-button" type="submit" value="Submit"/><span></span>
         </form>
         </section>
-        <section id="results-list" class="container-hidden">
-        </section>
+        <section id="results-list" class="container-hidden"></section>
         <footer>
             <p>&copy; James Bello 2019</p>
         </footer>

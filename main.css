@@ -90,6 +90,10 @@ section{
     margin: auto;
 }
 
+.button_cont{
+    align-content: center;
+}
+
 .start-button{
     background: rgb(122,10,14);
     background: linear-gradient(90deg, rgba(122,10,14,1) 0%, rgba(232,189,25,0.2533783783783784) 100%);
@@ -102,6 +106,7 @@ section{
     cursor: pointer;
     margin: 5px;
     border-radius: 30px;
+    border: transparent;
 }
 
 .start-button span{
@@ -280,7 +285,6 @@ input{
     body {
         margin: 0;
         padding: 0;
-
     }
 
     h1 {
